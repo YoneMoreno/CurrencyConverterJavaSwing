@@ -1,5 +1,6 @@
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -169,7 +170,7 @@ public class marco extends javax.swing.JFrame {
             return;
         }
         try{
-            tasa = Float.valueOf(tasaCambioIntroduceUsuario.getText());
+            tasa = getFloatValueFromJTextField(tasaCambioIntroduceUsuario);
             divisaDollar = Float.valueOf(divisa1.getText());
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(rootPane, "Compruebe los campos de texto e introduzca bien los digitos", noValuesHaveBeenWrittenTitle, JOptionPane.ERROR_MESSAGE);
@@ -179,6 +180,10 @@ public class marco extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_ConvertirActionPerformed
+
+    private Float getFloatValueFromJTextField(JTextField inputField) throws NumberFormatException {
+        return Float.valueOf(inputField.getText());
+    }
     private static final String noValuesHaveBeenWrittenTitle = "Error en los campos de texto";
     private static final String noValuesHaveBeenWrittenMessage = "No se han introducido valores en algún campo de texto";
 
@@ -200,7 +205,7 @@ public class marco extends javax.swing.JFrame {
             return;
         }
         try{
-            tasa = Float.valueOf(tasaCambioIntroduceUsuario.getText());
+            tasa = getFloatValueFromJTextField(tasaCambioIntroduceUsuario);
             divisaEuro = Float.valueOf(divisa2.getText());
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(rootPane, "Compruebe los campos de texto e introduzca bien los digitos", noValuesHaveBeenWrittenTitle, JOptionPane.ERROR_MESSAGE);
