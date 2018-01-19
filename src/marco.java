@@ -7,7 +7,6 @@ import javax.swing.JTextField;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author usuario
@@ -164,22 +163,23 @@ public class marco extends javax.swing.JFrame {
         // TODO add your handling code here:
         float tasa = 0;
         float divisaDollar = 0;
-        
-        if(isExchangeRateAndFirstCurrencyEmpty()){
+
+        if (isExchangeRateAndFirstCurrencyEmpty()) {
             JOptionPane.showMessageDialog(rootPane, noValuesHaveBeenWrittenMessage, noValuesHaveBeenWrittenTitle, JOptionPane.ERROR_MESSAGE);
             return;
         }
-        try{
+        try {
             tasa = getFloatValueFromJTextField(tasaCambioIntroduceUsuario);
-            divisaDollar = Float.valueOf(divisa1.getText());
-        }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(rootPane, "Compruebe los campos de texto e introduzca bien los digitos", noValuesHaveBeenWrittenTitle, JOptionPane.ERROR_MESSAGE);
+            divisaDollar = getFloatValueFromJTextField(divisa1);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(rootPane, checkInputTextWrittenMessage, noValuesHaveBeenWrittenTitle, JOptionPane.ERROR_MESSAGE);
         }
-        
-            divisa2.setText(String.valueOf(tasa*divisaDollar));
-        
-        
+
+        divisa2.setText(String.valueOf(tasa * divisaDollar));
+
+
     }//GEN-LAST:event_ConvertirActionPerformed
+    private static final String checkInputTextWrittenMessage = "Compruebe los campos de texto e introduzca bien los digitos";
 
     private Float getFloatValueFromJTextField(JTextField inputField) throws NumberFormatException {
         return Float.valueOf(inputField.getText());
@@ -199,21 +199,21 @@ public class marco extends javax.swing.JFrame {
         // TODO add your handling code here:
         float tasa = 0;
         float divisaEuro = 0;
-        
-        if(tasaCambioIntroduceUsuario.getText().equals("") || divisa2.getText().equals("")){
+
+        if (tasaCambioIntroduceUsuario.getText().equals("") || divisa2.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane, noValuesHaveBeenWrittenMessage, noValuesHaveBeenWrittenTitle, JOptionPane.ERROR_MESSAGE);
             return;
         }
-        try{
+        try {
             tasa = getFloatValueFromJTextField(tasaCambioIntroduceUsuario);
             divisaEuro = Float.valueOf(divisa2.getText());
-        }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(rootPane, "Compruebe los campos de texto e introduzca bien los digitos", noValuesHaveBeenWrittenTitle, JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(rootPane, checkInputTextWrittenMessage, noValuesHaveBeenWrittenTitle, JOptionPane.ERROR_MESSAGE);
         }
-        
-            divisa1.setText(String.valueOf(divisaEuro/tasa));
-        
-        
+
+        divisa1.setText(String.valueOf(divisaEuro / tasa));
+
+
     }//GEN-LAST:event_CambiarsentidoActionPerformed
 
     /**
