@@ -175,10 +175,14 @@ public class marco extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, checkInputTextWrittenMessage, noValuesHaveBeenWrittenTitle, JOptionPane.ERROR_MESSAGE);
         }
 
-        divisa2.setText(String.valueOf(tasa * divisaDollar));
+        convertCurrencyAndPrintItInto(divisa2, tasa, divisaDollar);
 
 
     }//GEN-LAST:event_ConvertirActionPerformed
+
+    private void convertCurrencyAndPrintItInto(JTextField outputField, float tasa, float divisaDollar) {
+        outputField.setText(String.valueOf(tasa * divisaDollar));
+    }
     private static final String checkInputTextWrittenMessage = "Compruebe los campos de texto e introduzca bien los digitos";
 
     private Float getFloatValueFromJTextField(JTextField inputField) throws NumberFormatException {
