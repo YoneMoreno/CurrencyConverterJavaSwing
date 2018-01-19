@@ -165,20 +165,22 @@ public class marco extends javax.swing.JFrame {
         float divisaDollar = 0;
         
         if(isExchangeRateAndFirstCurrencyEmpty()){
-            JOptionPane.showMessageDialog(rootPane, "No se han introducido valores en algún campo de texto", "Error en los campos de texto", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, noValuesHaveBeenWrittenMessage, noValuesHaveBeenWrittenTitle, JOptionPane.ERROR_MESSAGE);
             return;
         }
         try{
             tasa = Float.valueOf(tasaCambioIntroduceUsuario.getText());
             divisaDollar = Float.valueOf(divisa1.getText());
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(rootPane, "Compruebe los campos de texto e introduzca bien los digitos", "Error en los campos de texto", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Compruebe los campos de texto e introduzca bien los digitos", noValuesHaveBeenWrittenTitle, JOptionPane.ERROR_MESSAGE);
         }
         
             divisa2.setText(String.valueOf(tasa*divisaDollar));
         
         
     }//GEN-LAST:event_ConvertirActionPerformed
+    private static final String noValuesHaveBeenWrittenTitle = "Error en los campos de texto";
+    private static final String noValuesHaveBeenWrittenMessage = "No se han introducido valores en algún campo de texto";
 
     private boolean isExchangeRateAndFirstCurrencyEmpty() {
         return tasaCambioIntroduceUsuario.getText().equals("") || divisa1.getText().equals("");
@@ -194,14 +196,14 @@ public class marco extends javax.swing.JFrame {
         float divisaEuro = 0;
         
         if(tasaCambioIntroduceUsuario.getText().equals("") || divisa2.getText().equals("")){
-            JOptionPane.showMessageDialog(rootPane, "No se han introducido valores en algún campo de texto", "Error en los campos de texto", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, noValuesHaveBeenWrittenMessage, noValuesHaveBeenWrittenTitle, JOptionPane.ERROR_MESSAGE);
             return;
         }
         try{
             tasa = Float.valueOf(tasaCambioIntroduceUsuario.getText());
             divisaEuro = Float.valueOf(divisa2.getText());
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(rootPane, "Compruebe los campos de texto e introduzca bien los digitos", "Error en los campos de texto", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Compruebe los campos de texto e introduzca bien los digitos", noValuesHaveBeenWrittenTitle, JOptionPane.ERROR_MESSAGE);
         }
         
             divisa1.setText(String.valueOf(divisaEuro/tasa));
