@@ -164,7 +164,7 @@ public class marco extends javax.swing.JFrame {
         float tasa = 0;
         float divisaDollar = 0;
         
-        if(tasaCambioIntroduceUsuario.getText().equals("") || divisa1.getText().equals("")){
+        if(isExchangeRateAndFirstCurrencyEmpty()){
             JOptionPane.showMessageDialog(rootPane, "No se han introducido valores en algún campo de texto", "Error en los campos de texto", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -179,6 +179,10 @@ public class marco extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_ConvertirActionPerformed
+
+    private boolean isExchangeRateAndFirstCurrencyEmpty() {
+        return tasaCambioIntroduceUsuario.getText().equals("") || divisa1.getText().equals("");
+    }
 
     private void divisa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divisa2ActionPerformed
         // TODO add your handling code here:
